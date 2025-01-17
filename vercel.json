@@ -1,25 +1,28 @@
 {
-    "version": 2,
     "builds": [
       {
         "src": "package.json",
-      "use": "@vercel/node"
+        "use": "@vercel/node"
       }
     ],
     "routes": [
+      {
+        "src": "/admin/(.*)",
+        "dest": "/admin"
+      },
       {
         "src": "/(.*)",
         "dest": "/$1"
       }
     ],
     "env": {
-    "DATABASE_HOST": "db.qqtusiblccnjquqsslbh.supabase.co",
-    "DATABASE_PORT": "5432",
-    "DATABASE_USER": "postgres",
-    "DATABASE_PASSWORD": "mrtuRO7rntu3A2zt",
-    "DATABASE_NAME": "postgres",
-    "DATABASE_SSL": "true",
-    "DATABASE_CONNECTION_TIMEOUT": "60000"
-  }
+      "DATABASE_HOST": "db.qqtusiblccnjquqsslbh.supabase.co",
+      "DATABASE_PORT": "5432",
+      "DATABASE_USER": "postgres",
+      "DATABASE_PASSWORD": "mrtuRO7rntu3A2zt",
+      "DATABASE_NAME": "postgres",
+      "DATABASE_SSL": "true",
+      "DATABASE_CONNECTION_TIMEOUT": "60000"
+    }
   }
   
