@@ -61,18 +61,17 @@ import path from "path";
 
 export default ({ env }) => {
   const client = env("DATABASE_CLIENT", "postgres");
-
   const connections = {
     postgres: {
       connection: {
         client: "postgres",
-        connectionString: env("POSTGRES_URL"), // Use the environment variable for the connection URL
-        host: env("POSTGRES_HOST", "db.rwlpxeejmvfdurldlpvp.supabase.co"),
-        port: env.int("POSTGRES_PORT", 5432),
-        database: env("POSTGRES_DATABASE", "postgres"),
+        connectionString: env("DATABASE_URL"),
+        host: env("DATABASE_HOST", "db.qqtusiblccnjquqsslbh.supabase.co"),
+        port: env.int("DATABASE_PORT", 6543),
+        database: env("DATABASE_NAME", "postgres"),
         user: env("POSTGRES_USER", "postgres"),
-        password: env("POSTGRES_PASSWORD", "bBBChVZVZXm8IZo8"),
-        ssl: { rejectUnauthorized: false }, // required for Supabase SSL
+        password: env("POSTGRES_PASSWORD", "mrtuRO7rntu3A2zt"),
+        ssl: { rejectUnauthorized: false }, // necessary for SSL connection
         schema: env("DATABASE_SCHEMA", "public"),
       },
       pool: {
