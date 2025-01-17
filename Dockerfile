@@ -8,11 +8,11 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm install
 
-# Copy the rest of your application
+# Copy the rest of your application code
 COPY . .
 
-# Expose the port the app will run on
+# Expose the port Strapi will run on
 EXPOSE 1337
 
 # Start the Strapi app
-CMD ["npm", "run", "develop"]
+CMD ["npm", "run", "start"]
