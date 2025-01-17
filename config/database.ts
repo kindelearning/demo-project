@@ -1,5 +1,6 @@
 import path from "path";
 
+
 // export default ({ env }) => {
 //   const client = env('DATABASE_CLIENT', 'sqlite');
 
@@ -59,25 +60,37 @@ import path from "path";
 //   };
 // };
 
+
+
+// Load environment variables from .env file
+
+// Get the database connection parameters from environment variables
+
+
+
+// Setup the connection string
+
+
 export default ({ env }) => {
   const client = env("DATABASE_CLIENT", "postgres");
+
   const connections = {
     postgres: {
       connection: {
-        client: "postgres",
-        connectionString: env("DATABASE_URL"),
         host: env("DATABASE_HOST", "db.qqtusiblccnjquqsslbh.supabase.co"),
-        port: env.int("DATABASE_PORT", 6543),
-        database: env("DATABASE_NAME", "postgres"),
-        user: env("POSTGRES_USER", "postgres"),
-        password: env("POSTGRES_PASSWORD", "mrtuRO7rntu3A2zt"),
-        ssl: { rejectUnauthorized: false }, // necessary for SSL connection
-        schema: env("DATABASE_SCHEMA", "public"),
+        port: env.int("DATABASE_PORT", 5432),
+        database: env("DATABASE_DATABASE", "postgres"),
+        user: env("DATABASE_USER", "postgres"),
+        password: env("DATABASE_PASSWORD", "mrtuRO7rntu3A2zt"),
+        ssl: env.bool("DATABASE_SSL", false)
+          ? { rejectUnauthorized: false }  // Enables SSL based on env var
+          : false,
       },
       pool: {
-        min: env.int("DATABASE_POOL_MIN", 2),
-        max: env.int("DATABASE_POOL_MAX", 10),
+        min: 2,
+        max: 10,
       },
+      acquireConnectionTimeout: env.int("DATABASE_CONNECTION_TIMEOUT", 60000),
     },
   };
 
@@ -85,7 +98,6 @@ export default ({ env }) => {
     connection: {
       client,
       ...connections[client],
-      acquireConnectionTimeout: env.int("DATABASE_CONNECTION_TIMEOUT", 60000),
     },
   };
 };
