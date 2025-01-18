@@ -4,17 +4,19 @@
     {
       "src": "package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "/dist/build" }
+      "config": {
+        "distDir": "/dist/build"
+      }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/dist/build/index.html"  
+      "dest": "/dist/build/index.html" 
     },
     {
-      "src": "/build/(.*)",
-      "dest": "/dist/build/$1" 
+      "src": "/admin/(.*)",
+      "dest": "/dist/build/admin/$1" 
     }
   ],
   "env": {
