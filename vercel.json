@@ -4,7 +4,7 @@
       {
         "src": "package.json",
         "use": "@vercel/static-build",
-        "config": { "distDir": "dist/build" }
+        "config": { "distDir": "/build" }
       }
     ],
     "routes": [
@@ -12,9 +12,9 @@
         "src": "/(.*)",
         "dest": "server.js"
       },
-      { "src": "/dist/(.*)", "dest": "/dist/build/index.html" }
+      { "src": "/(.*)", "dest": "/build/index.html" }
     ],
-    "outputDirectory": "dist",
+    "outputDirectory": "/build",
     "env": {
       "DATABASE_HOST": "db.qqtusiblccnjquqsslbh.supabase.co",
       "DATABASE_PORT": "5432",
