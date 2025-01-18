@@ -1,28 +1,33 @@
 {
   "version": 2,
-    "builds": [
-      {
-        "src": "package.json",
-        "use": "@vercel/static-build",
-        "config": { "distDir": "dist/build" }
-      }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "server.js"
-      },
-      { "src": "/dist/build/(.*)", "dest": "dist/build/index.html" }
-    ],
-    "outputDirectory": "dist/build",
-    "env": {
-      "DATABASE_HOST": "db.qqtusiblccnjquqsslbh.supabase.co",
-      "DATABASE_PORT": "5432",
-      "DATABASE_USER": "postgres",
-      "DATABASE_PASSWORD": "mrtuRO7rntu3A2zt",
-      "DATABASE_NAME": "postgres",
-      "DATABASE_SSL": "true",
-      "DATABASE_CONNECTION_TIMEOUT": "60000"
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist/build" }
     }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/server.js"
+    },
+    {
+      "src": "/dist/build/(.*)",
+      "dest": "/dist/build/$1"
+    },
+    {
+      "src": "/admin(.*)",
+      "dest": "/dist/build$1" 
+    }
+  ],
+  "env": {
+    "DATABASE_HOST": "db.qqtusiblccnjquqsslbh.supabase.co",
+    "DATABASE_PORT": "5432",
+    "DATABASE_USER": "postgres",
+    "DATABASE_PASSWORD": "mrtuRO7rntu3A2zt",
+    "DATABASE_NAME": "postgres",
+    "DATABASE_SSL": "true",
+    "DATABASE_CONNECTION_TIMEOUT": "60000"
   }
-  
+}
