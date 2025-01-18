@@ -10,15 +10,11 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "/server.js"
+      "dest": "dist/build/index.html"  
     },
     {
-      "src": "/dist/build/(.*)",
-      "dest": "/dist/build/$1"
-    },
-    {
-      "src": "/admin(.*)",
-      "dest": "/dist/build$1" 
+      "src": "/build/(.*)",
+      "dest": "dist/build/$1" 
     }
   ],
   "env": {
