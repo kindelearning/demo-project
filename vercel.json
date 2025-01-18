@@ -15,7 +15,7 @@
         "dest": "server.js"
       }
     ],
-    "outputDirectory": "dist/build",
+    "outputDirectory": "dist",
     "env": {
       "DATABASE_HOST": "db.qqtusiblccnjquqsslbh.supabase.co",
       "DATABASE_PORT": "5432",
