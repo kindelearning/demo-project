@@ -12,5 +12,8 @@ exports.default = ({ env }) => ({
         },
         url: '/admin', // This should be the correct admin panel URL
         serveAdminPanel: true,
+        build: {
+            outputDir: 'dist/build', // Specify the directory where admin panel files are generated
+        },
     },
 });
