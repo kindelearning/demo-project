@@ -1,15 +1,12 @@
 {
     "builds": [
       {
-        "src": "server.js",
-        "use": "@vercel/node"
+        "src": "package.json",
+        "use": "@vercel/static-build",
+        "config": { "distDir": "dist/build" }
       }
     ],
     "routes": [
-      {
-        "src": "/admin/(.*)",
-        "dest": "/admin"
-      },
       {
         "src": "/(.*)",
         "dest": "server.js"
